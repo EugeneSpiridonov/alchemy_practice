@@ -1,7 +1,6 @@
 from fastapi import APIRouter
-from sqlalchemy import select
-from database import async_session_maker
-from users.models import Users
+
+from users.dao import UserDAO
 
 router = APIRouter(
     prefix="/users",
@@ -11,8 +10,4 @@ router = APIRouter(
 
 @router.get("")
 async def get_users():
-    async with async_session_maker() as session:
-        # .__table__.columns избавляет от лишней вложенности
-        query = select(Users.__table__.columns)
-        result = await session.execute(query)
-        return result.mappings().all()
+    return await UserDAO.find_all()
