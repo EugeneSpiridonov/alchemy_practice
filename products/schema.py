@@ -1,14 +1,13 @@
 from pydantic import BaseModel
 
 
-class SUser(BaseModel):
+class SProduct(BaseModel):
     """Валидация полей базы данных"""
 
     id: int
-    username: str
-    phone: str
-    email: str
-    password: str
+    name: str
+    description: str
+    price: int
 
     class Config:
         # Валидировалось и без этой строки, но всё же:
