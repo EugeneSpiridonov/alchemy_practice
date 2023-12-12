@@ -14,6 +14,7 @@ from ordered_products.models import OrderedProducts
 from orders.models import Orders
 from products.models import Products
 from product_photos.models import Pr_photos
+from task_for_transactions import Test_order
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

@@ -9,3 +9,4 @@ class Orders(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     user = relationship("Users", back_populates="orders")
+    ordered_products = relationship("OrderedProducts", back_populates="order")
